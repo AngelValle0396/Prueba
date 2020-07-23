@@ -15,14 +15,14 @@ import com.mindorks.placeholderview.annotations.View;
 @Animate(Animation.CARD_LEFT_IN_DESC)
 @NonReusable
 @Layout(R.layout.galeria_ly)
-public class Galeria {
+ class GalleryItem {
 
     @View(R.id.imageView)
     private ImageView imageView;
 
     private Drawable mDrawable;
 
-    public Galeria(Drawable drawable) {
+    public GalleryItem(Drawable drawable) {
         mDrawable = drawable;
     }
 
