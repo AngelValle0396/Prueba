@@ -1,9 +1,7 @@
 package com.example.banderas_lc1;
 
 import android.graphics.drawable.Drawable;
-
 import android.widget.ImageView;
-
 
 import com.mindorks.placeholderview.Animation;
 import com.mindorks.placeholderview.annotations.Animate;
@@ -15,8 +13,7 @@ import com.mindorks.placeholderview.annotations.View;
 @Animate(Animation.CARD_LEFT_IN_DESC)
 @NonReusable
 @Layout(R.layout.galeria_ly)
- class GalleryItem {
-
+public class GalleryItem {
     @View(R.id.imageView)
     private ImageView imageView;
 
