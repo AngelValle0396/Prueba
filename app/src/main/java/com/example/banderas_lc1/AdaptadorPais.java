@@ -1,4 +1,4 @@
 package com.example.banderas_lc1;
 
-public class AdaptadorPais {
+public class AdaptadorPais extends  {
 }
