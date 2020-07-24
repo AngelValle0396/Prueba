@@ -51,11 +51,11 @@ public class Pais {
         url = alpha2Code;
     }
     public static  ArrayList<Pais> JsonObjectsBuild(JSONArray datos) throws JSONException {
-        ArrayList<Pais> usuarios = new ArrayList<>();
+        ArrayList<Pais> paises = new ArrayList<>();
 
         for (int i = 0; i < datos.length() && i<20; i++) {
-            usuarios.add(new Pais(datos.getJSONObject(i)));
+            paises.add(new Pais(datos.getJSONObject(i)));
         }
-        return usuarios;
+        return paises;
     }
 }

@@ -1,26 +1,60 @@
 package com.example.banderas_lc1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
-import com.mindorks.placeholderview.PlaceHolderView;
+import com.example.banderas_lc1.WebService.Asynchtask;
+import com.example.banderas_lc1.WebService.WebService;
 
-public class MainActivity extends AppCompatActivity {
-    public PlaceHolderView mGalleryView;
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+
+public class MainActivity extends AppCompatActivity implements Asynchtask {
+    private RecyclerView recyclerView;
+    private Pais pais;
+    private ArrayList<Pais> lista;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mGalleryView = (PlaceHolderView)findViewById(R.id.galleryView);
-        mGalleryView
-                .addView(new GalleryItem(getResources().getDrawable(R.drawable.img1)))
-                .addView(new GalleryItem(getResources().getDrawable(R.drawable.img2)))
-                .addView(new GalleryItem(getResources().getDrawable(R.drawable.img3)))
-                .addView(new GalleryItem(getResources().getDrawable(R.drawable.img4)))
-                .addView(new GalleryItem(getResources().getDrawable(R.drawable.img5)))
-                .addView(new GalleryItem(getResources().getDrawable(R.drawable.img6)))
-                .addView(new GalleryItem(getResources().getDrawable(R.drawable.img7)))
-                ;
+
+        recyclerView= findViewById(R.id.recyclerview);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+
+        Map<String, String> datos = new HashMap<String, String>();
+        WebService ws= new WebService("https://restcountries.eu/rest/v2/all",
+                datos,  this, this);
+        ws.execute("GET");
+    }
+
+    @Override
+    public void processFinish(String result) throws JSONException {
+        ArrayList<Pais> lstEmpleos;
+
+        try {
+            JSONArray jsonlista= new JSONArray(result);
+            lstEmpleos = Pais.JsonObjectsBuild(jsonlista);
+            AdaptadorPais adaptador = new AdaptadorPais(this, lstEmpleos);
+
+            recyclerView.setAdapter(adaptador);
+
+        }catch (JSONException e)
+        {
+            Toast.makeText(this.getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG);
+        }
     }
 }
