@@ -28,7 +28,7 @@ public class AdaptadorPais extends RecyclerView.Adapter<AdaptadorPais.ViewHolder
     @Override
     public AdaptadorPais.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mcontext);
-        View item = inflater.inflate(R.layout.cardview_pais, null);
+        View item = inflater.inflate(R.layout.cardview_pais,parent , false);
         //View v = LayoutInflater.from(mcontext).inflate(R.layout.ly_itemsempleo,parent,false);
         return new ViewHolder(item);
     }
@@ -57,7 +57,6 @@ public class AdaptadorPais extends RecyclerView.Adapter<AdaptadorPais.ViewHolder
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             mImagev= itemView.findViewById(R.id.img_view);
             mname= itemView.findViewById(R.id.txt_pais_name);
         }

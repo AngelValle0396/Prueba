@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements Asynchtask {
 
         recyclerView= findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,3));
 
 
 
