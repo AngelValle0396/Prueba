@@ -1,4 +1,8 @@
 package com.example.banderas_lc1;
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.ArrayList;
 
 public class Pais {
     private String name;
@@ -7,6 +11,13 @@ public class Pais {
 
     private String url;
 
+    public Pais()throws JSONException {
+    alpha2Code="";
+    }
+    public static ArrayList<Pais> JsonObjectsBuild(JSONArray datos) throws JSONException{
+        ArrayList<Pais> infos= new ArrayList<>();
+        return infos;
+    }
     public String getUrl() {
         return url;
     }
