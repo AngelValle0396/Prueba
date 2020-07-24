@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,8 +41,24 @@ public class AdaptadorPais extends RecyclerView.Adapter<AdaptadorPais.ViewHolder
         return 0;
     }
 
-    public class ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        public ImageView mImagev;
+        public TextView mname;
+        public TextView mEmpresa;
+        int view_type;
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
 
+            mImagev= itemView.findViewById(R.id.imgEmpr);
+            mOfertaLab= itemView.findViewById(R.id.lblOfrtlab);
+            mEmpresa= itemView.findViewById(R.id.lblEmpresa);
+            mCargo= itemView.findViewById(R.id.lblCargo);
+            mCorreo= itemView.findViewById(R.id.lblCorreo);
+            mDescripcion= itemView.findViewById(R.id.lblDescripción);
+            view_type=1;
+
+
+        }
     }
 }
 
