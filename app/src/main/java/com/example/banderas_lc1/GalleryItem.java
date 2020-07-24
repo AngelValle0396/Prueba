@@ -12,12 +12,12 @@ import com.mindorks.placeholderview.annotations.View;
 
 @Animate(Animation.CARD_LEFT_IN_DESC)
 @NonReusable
-@Layout(R.layout.galeria_ly)
+@Layout(R.layout.activity_item_big)
 public class GalleryItem {
     @View(R.id.imageView)
-    private ImageView imageView;
+    public ImageView imageView;
 
-    private Drawable mDrawable;
+    public Drawable mDrawable;
 
     public GalleryItem(Drawable drawable) {
         mDrawable = drawable;
