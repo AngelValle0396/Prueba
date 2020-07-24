@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class AdaptadorPais extends RecyclerView.Adapter<AdaptadorPais.ViewHolder> {
     private Context mcontext;
     private ArrayList<Pais> mpaises;
+    private View.OnClickListener listener;
 
     public AdaptadorPais (Context context, ArrayList<Pais> lista){
         mcontext= context;

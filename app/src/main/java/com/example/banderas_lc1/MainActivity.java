@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity implements Asynchtask {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this,3));
 
-
-
         Map<String, String> datos = new HashMap<String, String>();
         WebService ws= new WebService("https://restcountries.eu/rest/v2/all",
                 datos,  this, this);
