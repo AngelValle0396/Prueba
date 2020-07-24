@@ -51,7 +51,9 @@ public class AdaptadorPais extends RecyclerView.Adapter<AdaptadorPais.ViewHolder
     public int getItemCount() {
         return mpaises.size();
     }
-
+    public void setOnClickListener(View.OnClickListener listener){
+        this.listener=listener;
+    }
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView mImagev;
         public TextView mname;

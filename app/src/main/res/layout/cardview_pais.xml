@@ -18,7 +18,7 @@
             android:scaleType="center"
             android:paddingLeft="22dp"
 
-            android:background="@color/colorAccent">
+            android:background="@android:color/transparent">
         </ImageView>
         <TextView
             android:id="@+id/txt_pais_name"
