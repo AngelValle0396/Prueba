@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.nio.channels.Pipe;
 import java.util.ArrayList;
 
@@ -26,39 +28,40 @@ public class AdaptadorPais extends RecyclerView.Adapter<AdaptadorPais.ViewHolder
     @Override
     public AdaptadorPais.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mcontext);
-        View item = inflater.inflate(R.layout.ly_itemsempleo, null);
+        View item = inflater.inflate(R.layout.cardview_pais, null);
         //View v = LayoutInflater.from(mcontext).inflate(R.layout.ly_itemsempleo,parent,false);
         return new ViewHolder(item);
     }
 
     @Override
     public void onBindViewHolder(@NonNull AdaptadorPais.ViewHolder holder, int position) {
+        Pais actual= mpaises.get(position);
 
+        String name =actual.getName();
+        String imagenurl= actual.getUrl();
+
+        holder.mname.setText(name);
+        Glide.with(mcontext)
+                .load(imagenurl)
+                .into(holder.mImagev);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mpaises.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView mImagev;
         public TextView mname;
-        public TextView mEmpresa;
-        int view_type;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            mImagev= itemView.findViewById(R.id.imgEmpr);
-            mOfertaLab= itemView.findViewById(R.id.lblOfrtlab);
-            mEmpresa= itemView.findViewById(R.id.lblEmpresa);
-            mCargo= itemView.findViewById(R.id.lblCargo);
-            mCorreo= itemView.findViewById(R.id.lblCorreo);
-            mDescripcion= itemView.findViewById(R.id.lblDescripción);
-            view_type=1;
-
-
+            mImagev= itemView.findViewById(R.id.img_view);
+            mname= itemView.findViewById(R.id.txt_pais_name);
         }
     }
+
 }
 

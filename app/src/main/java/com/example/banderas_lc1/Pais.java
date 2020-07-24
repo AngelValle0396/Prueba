@@ -6,21 +6,15 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Pais {
-    public Pais(String name, String alpha2Code, String url) {
+    public Pais(String name, String alpha2Code, String url ) {
         this.name = name;
         this.alpha2Code = alpha2Code;
-        this.url = url;
+        this.url=url;
     }
 
     private String name;
-
+    private  String url;
     private String alpha2Code;
-
-    private String url;
-
-    public Pais()throws JSONException {
-    alpha2Code="";
-    }
 
     public String getUrl() {
         return url;
@@ -28,6 +22,11 @@ public class Pais {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+
+    public Pais()throws JSONException {
+    alpha2Code="";
     }
 
     public String getName() {
@@ -47,13 +46,10 @@ public class Pais {
     }
     public Pais(JSONObject a) throws JSONException {
         name =  a.getString("name").toString() ;
+        alpha2Code =  "http://www.geognos.com/api/en/countries/flag/"+a.getString("alpha2Code").toString() +".png";
 
-        alpha2Code =  a.getString("alpha2Code").toString() ;
-
+        url = alpha2Code;
     }
-
-
-
     public static  ArrayList<Pais> JsonObjectsBuild(JSONArray datos) throws JSONException {
         ArrayList<Pais> usuarios = new ArrayList<>();
 
